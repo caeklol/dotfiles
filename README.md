@@ -5,4 +5,4 @@ Uses [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Usage
 
-Run `stow .`
+Run `stow $(ls -I README.md)`
