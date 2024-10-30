@@ -1,3 +1,3 @@
-require('plugins')
-require('keybinds')
-require('settings')
+require("keybinds")
+require("settings")
+require("plugins")
