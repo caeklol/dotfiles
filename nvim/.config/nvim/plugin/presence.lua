@@ -1,4 +1,4 @@
-require("presence").setup({
-    neovim_image_text   = "nvim",
-	auto_update = true
-})
+--require("presence").setup({
+--    neovim_image_text   = "nvim",
+--	auto_update = true
+--})

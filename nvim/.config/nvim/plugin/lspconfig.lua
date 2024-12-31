@@ -14,6 +14,7 @@ function add_lsp(server, options)
 	end
 end
 
+add_lsp(lspconfig.ccls, {})
 add_lsp(lspconfig.bashls, {})
 add_lsp(lspconfig.gopls, {})
 add_lsp(lspconfig.gopls, {})

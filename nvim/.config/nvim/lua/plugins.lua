@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
   }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  use 'andweeb/presence.nvim'
+  -- use 'andweeb/presence.nvim'
   use 'neovim/nvim-lspconfig'
 
   use 'hrsh7th/cmp-nvim-lsp'

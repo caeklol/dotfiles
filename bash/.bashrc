@@ -20,3 +20,4 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 export EDITOR=nvim
 export TERM=xterm-256color
+. "$HOME/.cargo/env"
