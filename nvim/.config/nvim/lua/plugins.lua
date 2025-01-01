@@ -24,5 +24,9 @@ return require('packer').startup(function(use)
   		ts_update()
   	end,
   }
+  use {
+    "kylechui/nvim-surround",
+    tag = "*",
+  }
 
 end)
