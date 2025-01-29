@@ -25,30 +25,11 @@ for dir in "${targets[@]}"; do
   general_dir="$dir"
   host_dir="$1/$dir"
 
-  # If no host-specific directory, just copy the general directory
   if [ ! -d "$host_dir" ]; then
     cp -r "$general_dir" "$merged_dir/$dir"
-    continue
+else
+    cp -r "$host_dir" "$merged_dir/$dir"
   fi
-
-  # Create destination directory for the current target
-  mkdir -p "$merged_dir/$dir"
-
-  while IFS= read -r -d '' file; do
-    filename=$(basename "$file")
-    if [ -f "$host_dir/$filename" ]; then
-      cp "$host_dir/$filename" "$merged_dir/$dir/$filename"
-    else
-      cp "$file" "$merged_dir/$dir/$filename"
-    fi
-  done < <(find "$general_dir" -mindepth 1 -maxdepth 1 -type f -print0)
-
-  while IFS= read -r -d '' file; do
-    filename=$(basename "$file")
-    if [ ! -f "$general_dir/$filename" ]; then
-      cp "$file" "$merged_dir/$dir/$filename"
-    fi
-  done < <(find "$host_dir" -mindepth 1 -maxdepth 1 -type f -print0)
 done
 
 echo "Stowing $merged_dir"
