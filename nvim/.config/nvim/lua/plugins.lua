@@ -29,4 +29,6 @@ return require('packer').startup(function(use)
     tag = "*",
   }
 
+  use 'm4xshen/autoclose.nvim'
+  use 'windwp/nvim-ts-autotag'
 end)
