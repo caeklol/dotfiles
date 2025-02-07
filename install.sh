@@ -2,6 +2,7 @@
 
 # scrumptious bash scripting
 # yeah gippity wrote this
+# the boring parts at least
 
 targets=("bash" "git" "kitty" "nvim" "omp" "tmux")
 
@@ -25,11 +26,18 @@ for dir in "${targets[@]}"; do
   general_dir="$dir"
   host_dir="$1/$dir"
 
-  if [ ! -d "$host_dir" ]; then
-    cp -r "$general_dir" "$merged_dir/$dir"
-else
-    cp -r "$host_dir" "$merged_dir/$dir"
+  cp -r "$general_dir" "$merged_dir/$dir"
+
+  if [ -d $host_dir ]; then
+	  host_specific_files=$(find $host_dir -type f | sed "s/^$1\///")
+	  IFS=$'\n' read -rd '' -a host_specific_files <<<"$host_specific_files" # host_specific_files = split($hsf, "\n")
+	  for file in "${host_specific_files[@]}"; do
+		file_without_path=$(dirname "$file")
+		mkdir -p "$merged_dir/$file_without_path"
+	  	cp "$1/$file" "$merged_dir/$file" # -r might be unnecessary but idk
+	  done
   fi
+
 done
 
 echo "Stowing $merged_dir"
