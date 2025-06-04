@@ -14,8 +14,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'onsails/lspkind.nvim'
 
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
   use 'RRethy/base16-nvim'
   use {
   	'nvim-treesitter/nvim-treesitter',
