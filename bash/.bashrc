@@ -9,7 +9,19 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-eval "$(oh-my-posh init bash --config /home/caek/.config/oh-my-posh/zash.omp.json)"
+hostname=$(uname -n)
+
+case "$hostname" in
+  pc-arch)
+    eval "$(oh-my-posh init bash --config /home/caek/.config/oh-my-posh/emodipt.omp.json)"
+    ;;
+  framework)
+    eval "$(oh-my-posh init bash --config /home/caek/.config/oh-my-posh/robbyrussell.omp.json)"
+    ;;
+  *)
+    echo "Unknown hostname"
+    ;;
+esac
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"

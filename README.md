@@ -5,4 +5,4 @@ Uses [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Usage
 
-`./install.sh <host>`
+`stow -t ~ $(ls -I README.md)`
