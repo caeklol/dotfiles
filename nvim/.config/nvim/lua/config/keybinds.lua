@@ -11,3 +11,7 @@ end, bufopts)
 vim.keymap.set('n', '<leader>ca', function()
 	vim.lsp.buf.code_action({apply=true})
 end, bufopts)
+
+vim.keymap.set('n', '<leader>re', function()
+	vim.lsp.buf.rename()
+end, bufopts)
