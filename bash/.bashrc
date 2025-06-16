@@ -23,13 +23,20 @@ case "$hostname" in
     ;;
 esac
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if command -v pyenv >/dev/null 2>&1; then
+       export PYENV_ROOT="$HOME/.pyenv"
+       [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+       eval "$(pyenv init -)"
+fi
 
-export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
+if command -v bun >/dev/null 2>&1; then
+	export BUN_INSTALL="$HOME/.bun"
+	export PATH=$BUN_INSTALL/bin:$PATH
+fi
+
+if command -v cargo >/dev/null 2>&1; then
+       . "$HOME/.cargo/env"
+fi
 
 export EDITOR=nvim
 export TERM=xterm-256color
-. "$HOME/.cargo/env"
