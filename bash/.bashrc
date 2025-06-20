@@ -34,9 +34,5 @@ if command -v bun >/dev/null 2>&1; then
 	export PATH=$BUN_INSTALL/bin:$PATH
 fi
 
-if command -v rustup >/dev/null 2>&1; then
-       . "$HOME/.cargo/env"
-fi
-
 export EDITOR=nvim
 export TERM=xterm-256color
