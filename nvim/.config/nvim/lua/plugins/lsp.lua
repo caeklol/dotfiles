@@ -22,4 +22,5 @@ return {
   	    require("config.nvim-cmp")
   	  end,
   	},
+	'numToStr/Comment.nvim',
 }
